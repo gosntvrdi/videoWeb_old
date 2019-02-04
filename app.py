@@ -61,7 +61,7 @@ def create_thumbnail(image):
         return True
 
     except:
-        print traceback.format_exc()
+        print(traceback.format_exc())
         return False
 
 
