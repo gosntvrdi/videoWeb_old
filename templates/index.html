@@ -76,45 +76,84 @@
         <p>Odaberite prikaz <strong>video spotova</strong> ili <strong>ponude</strong> Vašeg kafića na ekranima ili prebacite video input na Vašu <strong>kablovsku/satelitsku televiziju</strong>. Sustav će se automatski vratiti u način rada prikazivanja video spotova, svaki dan u <strong>3 ujutro</strong>.</p>
     </blockquote>
 
-    <!-- The file upload form used as target for the file upload widget -->
-    <form id="fileupload" action="//jquery-file-upload.appspot.com/" method="POST" enctype="multipart/form-data">
-        <!-- Redirect browsers with JavaScript disabled to the origin page -->
-        <noscript><input type="hidden" name="redirect" value="http://blueimp.github.io/jQuery-File-Upload/"></noscript>
-        <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
-        <div class="row fileupload-buttonbar">
-            <div class="col-lg-7">
-                <!-- The fileinput-button span is used to style the file input field as button -->
-                <span class="btn btn-success fileinput-button">
-                    <i class="glyphicon glyphicon-music"></i>
-                    <span>Prikaži video spotove</span>
-                    <input type="file" name="file" multiple>
-                </span>
-                <button type="submit" class="btn btn-primary start">
-                    <i class="	glyphicon glyphicon-cutlery"></i>
-                    <span>Prikaži ponudu</span>
-                </button>
-                <button type="reset" class="btn btn-warning cancel">
-                    <i class="glyphicon glyphicon-log-in"></i>
-                    <span>Prikaži TV signal</span>
-                </button>
-            </div>
-            <!-- The global progress state -->
-            <div class="col-lg-5 fileupload-progress fade">
-                <!-- The global progress bar -->
-                <div class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100">
-                    <div class="progress-bar progress-bar-success" style="width:0%;"></div>
-                </div>
-                <!-- The extended global progress state -->
-                <div class="progress-extended">&nbsp;</div>
-            </div>
-        </div>
-        <!-- The table listing the files available for upload/download -->
-        <table role="presentation" class="table table-striped"><tbody class="files"></tbody></table>
-    </form>
-    <br>
 
-    </div>
+
+
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type=text/javascript>
+            $(function() {
+              $('a#videoSpots').bind('click', function() {
+                $.getJSON('/videoSpots',
+                    function(data) {
+                  //do nothing
+                });
+                return false;
+              });
+            });
+    </script>
+
+
+                <a href=# id=videoSpots>
+                    <button class='btn btn-success'>
+                        <i class="	glyphicon glyphicon-music"></i>
+                       <span>Prikaži video spotove</span></button></a>
+
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type=text/javascript>
+            $(function() {
+              $('a#ponuda').bind('click', function() {
+                $.getJSON('/ponuda',
+                    function(data) {
+                  //do nothing
+                });
+                return false;
+              });
+            });
+    </script>
+
+                <a href=# id=ponuda>
+                    <button class='btn btn-primary start'>
+                        <i class="	glyphicon glyphicon-cutlery"></i>
+                       <span>Prikaži ponudu</span></button></a>
+
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type=text/javascript>
+            $(function() {
+              $('a#cecInputTV').bind('click', function() {
+                $.getJSON('/cecInputTV',
+                    function(data) {
+                  //do nothing
+                });
+                return false;
+              });
+            });
+    </script>
+
+              <a href=# id=cecInputTV>
+                    <button class='btn btn-primary start'>
+                        <i class="	glyphicon glyphicon-cutlery"></i>
+                       <span>Prikaži TV signal</span></button></a>
+
+    <br>
+    <br>
+    <h1>Prikaz playliste</h1>
+    <br>
+<p>
+  <a class="btn btn-primary" data-toggle="collapse" href="playlist" role="button" aria-expanded="false" aria-controls="playlist">
+    Današnja playlista
+  </a>
+</p>
+<div class="collapse" id="playlist">
+  <div class="card card-body">
+    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+  </div>
 </div>
+
+
+
 <!-- The blueimp Gallery widget -->
 <div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls" data-filter=":even">
     <div class="slides"></div>
