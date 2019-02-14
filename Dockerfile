@@ -3,5 +3,4 @@ COPY . /videoweb
 WORKDIR /videoweb
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
-ENTRYPOINT [ "cp", "-r", "/videoweb/", "/app" ]
 CMD python ./app.py
